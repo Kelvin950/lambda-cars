@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/aws/serverless-application-model/main/samtranslator/schema/schema.json": "file:///home/kelvin/Desktop/sources/backend%20course/servelss/mhyapp/template.yaml"
+  }
+}

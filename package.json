@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express-async-error": "^0.0.2"
+  }
+}
