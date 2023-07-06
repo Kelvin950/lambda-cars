@@ -1,18 +1,36 @@
 const express =  require('express');
+require('express-async-errors')
 const app =  express() ;
 
+require('dotenv').config()
+
+const  {carRouter} =  require('./routes/index')
 
 
-app.get('/'  ,(req , res)=>{
+
+app.use(express.json()) ;
+
+app.get("/casual/ic", function (req, res) {
+  res.send({
+    cook: "cool",
+ 
+  });
+});
+
+module.exports = app;
+
+app.use(carRouter) ;
 
 
+app.use((err , req , res, next)=>{
+
+ 
+console.log(err)
     res.send({
-        status:res.statusCode , 
-        message: 'lamda'
-    })
 
 
+        message : err.message || 'null'   })
+ 
+    
 })
 
-
- module.exports = app  ;

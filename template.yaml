@@ -8,7 +8,22 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 100
+
+Parameters:
+  ACCESSKEY:
+    Type: String 
+    Description: "accesskey"
+    Default: default value
+  KeyId:
+    Type: String 
+    Description: "accesskey"
+    Default: default value
+  
+  TableName:
+    Type: String 
+    Description: "accesskey"
+    Default: default value
 
 Resources:
   ExpressApi:
@@ -16,6 +31,14 @@ Resources:
     Properties:
       StageName: prod
       BinaryMediaTypes: ['*/*']
+  
+  MyDynamoDBTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: CARS
+      PrimaryKey:
+        Name: id
+        Type: String
 
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -38,6 +61,12 @@ Resources:
             RestApiId: !Ref ExpressApi
             Path: "/"
             Method: ANY
+      Environment:
+        Variables:
+          ACCESSKEY: !Ref ACCESSKEY
+          SECRETKEY: !Ref KeyId 
+          
+          TableName: !Ref TableName
 
   ApplicationResourceGroup:
     Type: AWS::ResourceGroups::Group

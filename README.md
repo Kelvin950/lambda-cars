@@ -1,3 +1,20 @@
+# OKAY SO I USED SAM-CLI TO CREATE THIS SERVELESS APP AND THIS  WILL BE MY GO TO WHEN I WANT TO CREATE SIMPLE REST APIS
+
+This is  a simple serveless app(lambda function) and an api gateway  that takes car data  eg .
+
+```bash
+json {id:string , model:string , make:string, year:string}
+```
+ 
+and saves to a dynamodb,  
+
+I also used `@vendia/serverless-express` which makes it very easy to create lamda functions for many routes without creating different functions or using switch statement to determine the specific url 
+
+With `@vendia/serverless-express` you can create a lambda function the same way you would create any lambda function and import the app to a handler in the root app.js .. it so simple to use .
+
+
+
+
 # mhyapp
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
